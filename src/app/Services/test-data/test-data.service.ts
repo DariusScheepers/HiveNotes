@@ -10,7 +10,7 @@ export class TestDataService {
 
   courses: Course[] = [];
   notes: Note[] = [];
-  modules: Module[] = []
+  modules: Module[] = [];
 
   constructor() { }
 
@@ -19,7 +19,7 @@ export class TestDataService {
   }
 
   createCoursesAndModules(): Course[] {
-    const introductionModule = new Module(1, 'Introduction', 'If you can see this, well done!');
+    const introductionModule = new Module(1, 'Introduction', 'If you can see this, well done!'); // IDs should be auto set.
     const dotnetCoreModule = new Module(2, 'Dont Net Core', 'Dont think you are done yet.');
     const cSharpModules = [introductionModule, dotnetCoreModule];
     const cSharpCourse = new Course(1, 'C#', cSharpModules);

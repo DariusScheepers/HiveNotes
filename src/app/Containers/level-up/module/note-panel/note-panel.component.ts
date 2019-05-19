@@ -22,12 +22,13 @@ export class NotePanelComponent implements OnInit {
   @Input() module: Module;
   notes: Note[] = [];
 
-  newNoteForm: FormGroup;
+  newNote: Note;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.setNotes();
+    this.setNewNoteForm();
   }
 
   setNotes() {
@@ -35,13 +36,13 @@ export class NotePanelComponent implements OnInit {
   }
 
   setNewNoteForm() {
-    this.newNoteForm = createNewNoteFormGroup();
+    this.newNote = new Note(0,'','',null);
   }
 
-  addNewNote(newNoteFormValues) {
-    console.log(newNoteFormValues);
-    const id = this.notes.length;
-    let newNote = new Note(id, newNoteFormValues.name, newNoteFormValues.content, this.module);
+  addNewNote() {
+    console.log('Note added: ', this.newNote);
+    const id = this.notes.length; // Id should be auto set.
+    let newNote = new Note(id, this.newNote.name, this.newNote.content, this.module);
     this.dataService.addNote(newNote);
 
     this.setNotes();

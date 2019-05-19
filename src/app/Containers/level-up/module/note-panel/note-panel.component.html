@@ -5,20 +5,27 @@
     [note]="note">
   </app-note>
 
-  <ng-container (submit)="addNewNote(newNoteForm.value)" formGroupName="newNoteForm">
-    <div id="note-form-grid">
-
-      <div id="name">
-        Name <br />
-        <input type="text" formControlName="name">
-      </div>
-      <div id="content">
-        Content <br />
-        <textarea rows="2" formControlName="content"></textarea>
-      </div>
-      <input id="submit" type="submit" value="Submit">
-
+  <form (ngSubmit)="addNewNote()" #noteForm="ngForm">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name"
+            required
+            name="name"
+            #name="ngModel"
+            [(ngModel)]="newNote.name">
+    <div [hidden]="name.valid || name.pristine"
+          class="alert alert-danger">
+      Name is required
     </div>
-  </ng-container>
+
+    <!-- This should be required as well. and should be a text area -->
+    <div class="form-group">
+      <label for="alterEgo">Content</label>
+      <input type="text" class="form-control" id="content"
+              [(ngModel)]="newNote.content" name="content">
+    </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!noteForm.form.valid">Submit</button>
+    </form>
+
 
 </div>
