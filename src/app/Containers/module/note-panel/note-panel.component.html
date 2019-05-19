@@ -1,0 +1,24 @@
+<div id="panel">
+
+  <app-note 
+    *ngFor="let note of notes"
+    [note]="note">
+  </app-note>
+
+  <ng-container (submit)="addNewNote(newNoteForm.value)" formGroupName="newNoteForm">
+    <div id="note-form-grid">
+
+      <div id="name">
+        Name <br />
+        <input type="text" formControlName="name">
+      </div>
+      <div id="content">
+        Content <br />
+        <textarea rows="2" formControlName="content"></textarea>
+      </div>
+      <input id="submit" type="submit" value="Submit">
+
+    </div>
+  </ng-container>
+
+</div>

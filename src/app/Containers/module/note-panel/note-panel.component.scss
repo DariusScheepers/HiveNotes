@@ -1,0 +1,26 @@
+@import 'src/stylings/_mixins.scss';
+
+#panel {
+    border-color: black;
+    border-width: 2px;
+}
+
+#note-form-grid {
+    margin-top: 24px;
+    
+    #name {
+        grid-area: A;
+    }
+
+    #content {
+        grid-area: B;
+    }
+
+    #submit {
+        grid-area: C;
+    }
+
+    $grid-pattern:  'A A . . . . C C'
+                    'B B B B B B C C';
+    @include gov-grid-template(2,9,$grid-pattern);
+}

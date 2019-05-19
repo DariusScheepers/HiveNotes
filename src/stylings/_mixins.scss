@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+$horizontal-gap: 8px;
+$vertical-gap: 16px;
+
+@mixin gov-grid-template($rows, $columns, $pattern) {
+    display: grid;
+
+    grid-template-rows: repeat($rows, auto);
+    grid-template-columns: repeat($columns, minmax(0, 1fr));
+    grid-template-areas: $pattern;
+    grid-gap: $horizontal-gap $vertical-gap;
+}

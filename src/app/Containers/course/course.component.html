@@ -1,0 +1,6 @@
+<h1>{{course.name}}</h1>
+<ol>
+  <li *ngFor="let module of course.modules">
+    <a [routerLink]="['/module', module.id]">{{module.name}}</a>
+  </li>
+</ol>
