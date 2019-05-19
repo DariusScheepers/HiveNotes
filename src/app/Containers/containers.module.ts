@@ -1,24 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LevelUpComponent } from './level-up/level-up.component';
-import { HiveNotesComponent } from './hive-notes.component';
-import { CourseComponent } from './course/course.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { ModuleModule } from './module/module.module';
+import { ModuleModule } from './level-up/module/module.module';
 import { CommonComponentsModule } from './common/common-components.module';
+import { LevelUpModule } from './level-up/level-up.module';
+import { HiveNotesComponent } from './hive-notes.component';
 
 @NgModule({
-  declarations: [LevelUpComponent, HiveNotesComponent, CourseComponent],
+  declarations: [HiveNotesComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
     ModuleModule,
-    CommonComponentsModule
+    CommonComponentsModule,
+    LevelUpModule
   ],
-  exports: [
-    HiveNotesComponent,
-    LevelUpComponent,
-    CourseComponent
-  ]
+  exports: [HiveNotesComponent]
 })
 export class ContainersModule { }

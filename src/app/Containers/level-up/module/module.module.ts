@@ -4,7 +4,7 @@ import { ModuleComponent } from './module.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ModuleContentComponent } from './module-content/module-content.component';
 import { NotePanelComponent } from './note-panel/note-panel.component';
-import { CommonComponentsModule } from '../common/common-components.module';
+import { CommonComponentsModule } from '../../common/common-components.module';
 
 @NgModule({
   declarations: [ModuleComponent, ModuleContentComponent, NotePanelComponent],
