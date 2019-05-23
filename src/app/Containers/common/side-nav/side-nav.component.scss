@@ -1,7 +1,31 @@
 .main-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   }
+
+  .container{
+    background-color: red;
+    display: inline-block;
+    margin: 20px 20px 20px 20px;
+  }
+
+#sidenav-toggle{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.page-content{
+  // display: flex;
+  // height: 100%;
+  // align-items: center;
+  // justify-content: center;
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
