@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContainersModule } from './Containers/containers.module';
-import { SideNavComponent } from './Containers/common/side-nav/side-nav.component';
+import { SideNavComponent } from './Containers/side-nav/side-nav.component';
 import { CommonComponentsModule } from './Containers/common/common-components.module';
 
 import { MatSidenavModule } from '@angular/material';
