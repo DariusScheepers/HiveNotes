@@ -5,9 +5,10 @@ import { ModuleModule } from './level-up/module/module.module';
 import { CommonComponentsModule } from './common/common-components.module';
 import { LevelUpModule } from './level-up/level-up.module';
 import { HiveNotesComponent } from './hive-notes.component';
+import { PageContentComponent } from '../Containers/page-content/page-content.component';
 
 @NgModule({
-  declarations: [HiveNotesComponent],
+  declarations: [HiveNotesComponent, PageContentComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
@@ -15,6 +16,6 @@ import { HiveNotesComponent } from './hive-notes.component';
     CommonComponentsModule,
     LevelUpModule
   ],
-  exports: [HiveNotesComponent]
+  exports: [HiveNotesComponent, PageContentComponent]
 })
 export class ContainersModule { }
