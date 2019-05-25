@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-content.component.scss']
 })
 export class PageContentComponent implements OnInit {
-
+  title = 'HiveNotes';
   constructor() { }
 
   ngOnInit() {
