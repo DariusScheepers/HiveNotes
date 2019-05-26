@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HiveNotesService } from './hive-notes.service';
+import { HiveNotesService } from '../../Services/hive-notes/hive-notes.service';
 
 @Component({
   selector: 'app-hive-notes',

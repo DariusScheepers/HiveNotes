@@ -1,0 +1,18 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+<mat-drawer-container class="main-container" autosize>
+  <mat-drawer #sidenav mode="side" position="end">
+    <div class="container">
+        Sidenav content
+        
+    </div>
+    
+  </mat-drawer>
+  <i id="sidenav-toggle" mat-button (click)="sidenav.toggle()" class="material-icons md-48">menu</i>
+
+  <app-page-content></app-page-content>
+    
+    
+
+</mat-drawer-container>
