@@ -1,6 +1,6 @@
-#note-grid {
-    border-style: solid;
-    border-color: gold;
-    border-width: 1px;
+@import "~@angular/material/prebuilt-themes/deeppurple-amber";
+
+.note{
     margin: 16px;
+    background-color: beige;
 }
