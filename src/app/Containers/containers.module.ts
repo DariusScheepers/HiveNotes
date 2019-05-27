@@ -11,8 +11,9 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 
 import { MatSidenavModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SideNavContentComponent } from './side-nav/side-nav-content/side-nav-content.component';
 @NgModule({
-  declarations: [HiveNotesComponent, PageContentComponent, SideNavComponent],
+  declarations: [HiveNotesComponent, PageContentComponent, SideNavComponent, SideNavContentComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
@@ -23,6 +24,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSidenavModule,
     BrowserAnimationsModule
   ],
-  exports: [HiveNotesComponent, PageContentComponent, SideNavComponent]
+  exports: [HiveNotesComponent, PageContentComponent, SideNavComponent, SideNavContentComponent]
 })
 export class ContainersModule { }

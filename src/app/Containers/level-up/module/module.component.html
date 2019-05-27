@@ -1,11 +1,13 @@
-<h1>{{module.name}}</h1>
+<div *ngIf="module">
+  <h1>{{module.name}}</h1>
 
-<div id="module-grid">
-  <app-module-content id="module-content"
-    [module]="module">
-  </app-module-content>
-
-  <app-note-panel id="note-panel"
-    [module]="module">
-  </app-note-panel>
+  <div id="module-grid">
+    <app-module-content id="module-content"
+      [module]="module">
+    </app-module-content>
+  
+    <app-note-panel id="note-panel"
+      [module]="module">
+    </app-note-panel>
+  </div>
 </div>

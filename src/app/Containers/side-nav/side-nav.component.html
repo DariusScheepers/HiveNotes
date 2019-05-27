@@ -5,14 +5,20 @@
   <mat-drawer #sidenav mode="side" position="end">
     <div class="container">
         Sidenav content
-        
+
+        <router-outlet name="sidebar"></router-outlet>
+
+      <!-- <app-note-panel *ngIf="module" id="note-panel"
+        [module]="module">
+      </app-note-panel> -->
+
+        <!-- <router-outlet name="sidebar"></router-outlet> -->
     </div>
     
   </mat-drawer>
   <i id="sidenav-toggle" mat-button (click)="sidenav.toggle()" class="material-icons md-48">menu</i>
 
   <app-page-content></app-page-content>
-    
     
 
 </mat-drawer-container>
