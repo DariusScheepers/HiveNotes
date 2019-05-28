@@ -1,31 +1,51 @@
-<div id="panel">
-
-  <app-note 
-    *ngFor="let note of notes"
-    [note]="note">
-  </app-note>
+<mat-card id="panel">
+  <app-note *ngFor="let note of notes" [note]="note"> </app-note>
 
   <form (ngSubmit)="addNewNote()" #noteForm="ngForm">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" id="name"
-            required
-            name="name"
-            #name="ngModel"
-            [(ngModel)]="newNote.name">
-    <div [hidden]="name.valid || name.pristine"
-          class="alert alert-danger">
-      Name is required
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Title"
+        type="text"
+        required
+        class="form-control"
+        name="name"
+        #name="ngModel"
+        [(ngModel)]="newNote.name"
+        id="name"
+      />
+      <mat-error
+        [hidden]="name.valid || name.pristine"
+        class="alert alert-danger"
+      >
+        Please give your note a title
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+        rows="4"
+        matInput
+        placeholder="Note"
+        type="text"
+        class="form-control"
+        id="content"
+        [(ngModel)]="newNote.content"
+        name="content"
+      ></textarea>
+    </mat-form-field>
+
+    <div class="button-block">
+        <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!noteForm.form.valid"
+      >
+        Submit
+      </button>
     </div>
+    
 
-    <!-- This should be required as well. and should be a text area -->
-    <div class="form-group">
-      <label for="alterEgo">Content</label>
-      <input type="text" class="form-control" id="content"
-              [(ngModel)]="newNote.content" name="content">
-    </div>
-
-      <button type="submit" class="btn btn-success" [disabled]="!noteForm.form.valid">Submit</button>
-    </form>
-
-
-</div>
+  </form>
+</mat-card>

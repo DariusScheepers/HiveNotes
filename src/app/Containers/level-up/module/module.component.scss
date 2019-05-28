@@ -1,14 +1,18 @@
 @import 'src/stylings/_mixins.scss';
 
-#module-grid {
-    #module-content {
-        grid-area: A;
-    }
+// #module-grid {
+//     #module-content {
+//         grid-area: A;
+//     }
 
-    #note-panel {
-        grid-area: B;
-    }
     
-    $grid-pattern:  'A A A A A A B';
-    @include gov-grid-template(2,7,$grid-pattern);
+//     $grid-pattern:  'A A A A A B B';
+//     @include gov-grid-template(2,7,$grid-pattern);
+// }
+
+#note-panel {
+    position: absolute;
+
+    right:0px;
+    width: 25%;
 }
