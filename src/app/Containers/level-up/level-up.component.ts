@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/Services/data/data.service';
 import { Course } from 'src/app/Models/course';
+import { DatabaseService } from 'src/app/Services/database/database.service';
 
 @Component({
   selector: 'app-level-up',
@@ -11,14 +11,14 @@ export class LevelUpComponent implements OnInit {
 
   courses: Course[];
 
-  constructor(private dataService: DataService) { }
+  constructor(private databaseService: DatabaseService) { }
 
   ngOnInit() {
-    this.setCourses();
+    this.getCourses();
   }
 
-  setCourses() {
-    this.courses = this.dataService.getAllCourses();
+  getCourses(): void {
+    this.databaseService.getAllCourses().subscribe(courses => this.courses = courses);
   }
 
 }

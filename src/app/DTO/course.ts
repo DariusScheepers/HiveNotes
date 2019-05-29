@@ -1,4 +1,4 @@
-export interface CourseJson {
+export interface CourseFromRest {
   CourseId: number,
   Code: string,
   Name: string,
