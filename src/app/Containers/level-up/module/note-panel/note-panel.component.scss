@@ -1,27 +1,24 @@
 @import 'src/stylings/_mixins.scss';
 
+
 #panel {
-    border-style: solid;
-    border-color: black;
-    border-width: 2px;
+    // min-width: 1000px;
+    // border-style: solid;
+    // border-color: black;
+    // border-width: 1px;
+    margin: 5%;
+    padding: 5%;
+    
+
+    mat-form-field{
+       // padding-top: 8px;
+        display: block;
+        box-sizing:content-box;
+    }
+
 }
 
-#note-form-grid {
-    margin-top: 24px;
-    
-    #name {
-        grid-area: A;
-    }
-
-    #content {
-        grid-area: B;
-    }
-
-    #submit {
-        grid-area: C;
-    }
-
-    $grid-pattern:  'A A . . . . C C'
-                    'B B B B B B C C';
-    @include gov-grid-template(2,9,$grid-pattern);
+.button-block{
+    display: flex;
+    justify-content: flex-end;
 }

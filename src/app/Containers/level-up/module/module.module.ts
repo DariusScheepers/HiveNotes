@@ -6,6 +6,7 @@ import { ModuleContentComponent } from './module-content/module-content.componen
 import { NotePanelComponent } from './note-panel/note-panel.component';
 import { CommonComponentsModule } from '../../common/common-components.module';
 import { FormsModule } from '@angular/forms';
+import { MatInputModule, MatFormFieldModule, MatButtonModule, MatCardModule } from '@angular/material';
 
 @NgModule({
   declarations: [ModuleComponent, ModuleContentComponent, NotePanelComponent],
@@ -13,7 +14,11 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     AppRoutingModule,
     CommonComponentsModule,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatCardModule
   ],
   exports: [
     ModuleComponent,
