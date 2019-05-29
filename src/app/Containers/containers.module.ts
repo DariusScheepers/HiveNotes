@@ -9,7 +9,7 @@ import { PageContentComponent } from '../Containers/page-content/page-content.co
 import { ModuleComponent } from './level-up/module/module.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 
-import { MatSidenavModule } from '@angular/material';
+import { MatSidenavModule, MatToolbarModule, MatButtonModule, MatButtonToggleModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideNavContentComponent } from './side-nav/side-nav-content/side-nav-content.component';
 @NgModule({
@@ -22,6 +22,9 @@ import { SideNavContentComponent } from './side-nav/side-nav-content/side-nav-co
     LevelUpModule,
 
     MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatButtonToggleModule,
     BrowserAnimationsModule
   ],
   exports: [HiveNotesComponent, PageContentComponent, SideNavComponent, SideNavContentComponent]
