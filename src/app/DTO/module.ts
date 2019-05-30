@@ -1,5 +1,5 @@
 export interface ModuleFromRest {
-  id: number,
+  moduleId: number,
   code: string,
   name: string,
   description: string,

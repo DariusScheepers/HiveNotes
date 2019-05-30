@@ -3,6 +3,5 @@ export interface CourseFromRest {
   code: string,
   name: string,
   description: string,
-  icon: string,
-  modules: number[]
+  icon: string
 }

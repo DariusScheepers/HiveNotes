@@ -20,6 +20,7 @@ export class DatabaseService {
 
   private courseUrl = 'http://localhost:3000/api/hive/course';
   private coursesUrl = 'http://localhost:3000/api/hive/courses';
+  private moduleUrl = 'http://localhost:3000/api/hive/module';
 
   constructor(private http: HttpClient) { }
 
@@ -34,7 +35,7 @@ export class DatabaseService {
   getModules(courseId: number): Observable<Module[]> {
     return this.http.get<ModuleFromRest[]>(`${this.courseUrl}/${courseId}/modules`).pipe(map(modules => modules.map(
       module => new Module(
-        module.id,
+        module.moduleId,
         module.name
       )
     )));
@@ -56,12 +57,11 @@ export class DatabaseService {
     return new Observable;
   }
 
-  getCourseById(coursId: number): Observable<Course> {
-    return null;
-  }
-
-  getModuleById(moduleId: number): Observable<Module> {
-    return null;
+  getModule(moduleId: number): Observable<Module> {
+    return this.http.get<ModuleFromRest>(`${this.moduleUrl}/${moduleId}`).pipe(map(module => new Module(
+      module.moduleId,
+      module.name
+    )));
   }
 
   getNotesByModuleId(moduleId: number): Observable<Note[]> {
