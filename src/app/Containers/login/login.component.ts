@@ -2,7 +2,6 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from 'src/app/Models/user';
 import { LowerCasePipe } from '@angular/common';
-import { DataService } from 'src/app/Services/data/data.service';
 import { DatabaseService } from 'src/app/Services/database/database.service';
 
 @Component({
@@ -12,8 +11,7 @@ import { DatabaseService } from 'src/app/Services/database/database.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private dataService: DataService,
-    private databaseService: DatabaseService) { }
+  constructor(private databaseService: DatabaseService) { }
 
   loginForm: User;
   dbUserExist: boolean = true;
@@ -25,23 +23,22 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log("works;", this.loginForm);
-
-    this.loginForm.userID = this.loginForm.userID.toLowerCase();
-    this.dataService.userID = this.loginForm.userID;
-    this.authenticateUser();
-
+    this.loginForm.username = this.loginForm.username.toLowerCase();
+    this.authenticateUserAndSetUserID();
+    
     if (this.dbUserExist) {
       this.verified.emit(true);
     }
   }
 
-  authenticateUser() {
-    const rec = this.databaseService.getUserAuthentication(this.loginForm.userID);
+  authenticateUserAndSetUserID() {
+    const rec = this.databaseService.getUserAuthentication(this.loginForm.username);
     if (rec) {
+      rec.subscribe(value => this.databaseService.userID = value.id);
       this.dbUserExist = true;
-    } else 
-    this.dbUserExist = false;
+    } else {
+      this.dbUserExist = false;
+    }
   }
 
 }

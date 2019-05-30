@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Module } from 'src/app/Models/module';
-import { DataService } from 'src/app/Services/data/data.service';
 import { Note } from 'src/app/Models/note';
+import { DatabaseService } from 'src/app/Services/database/database.service';
 
 function createNewNoteFormGroup() {
   const fb = new FormBuilder();
@@ -24,7 +24,11 @@ export class NotePanelComponent implements OnInit {
 
   newNote: Note;
 
-  constructor(private dataService: DataService) { }
+  get userID(): number {
+    return this.databaseService.userID;
+  }
+
+  constructor(private databaseService: DatabaseService) { }
 
   ngOnInit() {
     this.setNotes();
@@ -32,18 +36,21 @@ export class NotePanelComponent implements OnInit {
   }
 
   setNotes() {
-    this.notes = this.dataService.getNotesByModuleId(this.module.id);
+    const rec = this.databaseService.getNotesByModuleId(this.module.id);
+    if (rec) {
+      rec.subscribe(notes => this.notes = notes);
+    }
+    this.notes = [new Note('What the hell is this?', 'This makes no sense!', new Module(1,'', ''), 1)];
   }
 
   setNewNoteForm() {
-    this.newNote = new Note(0,'','',null);
+    this.newNote = new Note('','',null, this.userID);
   }
 
   addNewNote() {
     console.log('Note added: ', this.newNote);
-    const id = this.notes.length; // Id should be auto set.
-    let newNote = new Note(id, this.newNote.name, this.newNote.content, this.module);
-    this.dataService.addNote(newNote);
+    let newNote = new Note(this.newNote.name, this.newNote.content, this.module, this.userID);
+    this.databaseService.postNote(newNote);
 
     this.setNotes();
   }
