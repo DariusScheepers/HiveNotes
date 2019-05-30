@@ -23,14 +23,14 @@ export class SideNavComponent implements OnInit {
   setModule() {
     this.route.params.forEach((params: Params) => {
       if (params['id'] !== undefined) {
-        let id = +params['id'];
+        const id = +params['id'];
         const rec = this.databaseService.getModuleById(id);
         if (rec) {
           rec.subscribe(module => this.module = module);
         } else {
-          this.module = new Module(id, 'Dont Net Core', 'Dont think you are done yet.');
+          this.module = new Module(id, 'Dont think you are done yet.');
         }
-      } 
+      }
     });
   }
 }
