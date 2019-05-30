@@ -9,9 +9,15 @@ import { HiveNotesService } from '../../Services/hive-notes/hive-notes.service';
 export class HiveNotesComponent implements OnInit {
 
   constructor(private hiveNotesService: HiveNotesService) { }
+  
+  loggedIn: boolean = false;
 
   ngOnInit() {
     this.hiveNotesService.startup();
+  }
+
+  userLoggedIn() {
+    this.loggedIn = true;
   }
 
 }

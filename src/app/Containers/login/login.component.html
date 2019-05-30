@@ -1,0 +1,30 @@
+<h1>
+  Login
+</h1>
+<form (ngSubmit)="login()" #form="ngForm">
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="User ID"
+      type="text"
+      required
+      class="form-control"
+      name="userID"
+      #userID="ngModel"
+      [(ngModel)]="loginForm.userID"
+      id="name"/>
+  </mat-form-field>
+
+  <div class="button-block">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit">
+      Login
+    </button> 
+  </div>
+</form>
+
+<div *ngIf="!dbUserExist">
+  <span>Invalid Login</span>
+</div>

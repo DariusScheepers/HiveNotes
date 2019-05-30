@@ -14,8 +14,16 @@ export class DataService {
   private notes: Note[] = [];
   private modules: Module[] = [];
 
+  private _userID: string = null;
+  get userID(): string {
+    return this._userID;
+  }
+  set userID(userID: string) {
+    this._userID = userID;
+  }
+
   constructor(
-    private databaseService: DatabaseService,
+    // private databaseService: DatabaseService,
     private testDataService: TestDataService) { }
 
   startup() {

@@ -9,11 +9,13 @@ import { PageContentComponent } from '../Containers/page-content/page-content.co
 import { ModuleComponent } from './level-up/module/module.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 
-import { MatSidenavModule, MatToolbarModule, MatButtonModule, MatButtonToggleModule } from '@angular/material';
+import { MatSidenavModule, MatToolbarModule, MatButtonModule, MatButtonToggleModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideNavContentComponent } from './side-nav/side-nav-content/side-nav-content.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [HiveNotesComponent, PageContentComponent, SideNavComponent, SideNavContentComponent],
+  declarations: [HiveNotesComponent, PageContentComponent, SideNavComponent, SideNavContentComponent, LoginComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
@@ -25,7 +27,10 @@ import { SideNavContentComponent } from './side-nav/side-nav-content/side-nav-co
     MatToolbarModule,
     MatButtonModule,
     MatButtonToggleModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
   ],
   exports: [HiveNotesComponent, PageContentComponent, SideNavComponent, SideNavContentComponent]
 })
