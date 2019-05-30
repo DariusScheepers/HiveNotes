@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { switchMap } from 'rxjs/operators';
-import { Course } from 'src/app/Models/course';
 import { ActivatedRoute, ParamMap, Params } from '@angular/router';
-import { DataService } from 'src/app/Services/data/data.service';
 import { Module } from 'src/app/Models/module';
+import { DatabaseService } from 'src/app/Services/database/database.service';
+import { Course } from 'src/app/Models/course';
 
 @Component({
   selector: 'app-course',
@@ -13,23 +12,23 @@ import { Module } from 'src/app/Models/module';
 export class CourseComponent implements OnInit {
 
   course: Course;
+  modules: Module[];
 
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService) { }
+    private databaseService: DatabaseService) { }
 
   ngOnInit() {
-    this.setCourse();
+    this.getCourse();
   }
 
-  setCourse() {
+  getCourse() {
     this.route.params.forEach((params: Params) => {
       if (params['id'] !== undefined) {
-        let id = +params['id'];
-        this.course = this.dataService.getCourseById(id);
+        const id = +params['id'];
+        this.databaseService.getCourse(id).subscribe(course => this.course = course);
+        this.databaseService.getModules(id).subscribe(modules => this.modules = modules);
       } 
     });
   }
-
-
 }

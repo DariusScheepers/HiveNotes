@@ -1,0 +1,25 @@
+.hexagon-container {
+    height: 112px;
+    display: block;
+    &:first-of-type {
+        margin-top: 60px;
+    }
+
+    span {
+        margin-left: 20px;
+        font-size: 20px;
+        font-weight: 600;
+        position: relative;
+        top: -20px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    img {
+        position: relative;
+        display: inherit;
+        width: 48px;
+        margin: auto;
+    }
+}

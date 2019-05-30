@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/Services/data/data.service';
-import { Course } from 'src/app/Models/course';
+import { CourseBrief } from 'src/app/Models/course';
+import { DatabaseService } from 'src/app/Services/database/database.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-level-up',
@@ -9,16 +10,24 @@ import { Course } from 'src/app/Models/course';
 })
 export class LevelUpComponent implements OnInit {
 
-  courses: Course[];
+  courses: CourseBrief[];
 
-  constructor(private dataService: DataService) { }
+  constructor(private databaseService: DatabaseService, private router: Router) { }
 
   ngOnInit() {
-    this.setCourses();
+    this.getCourses();
   }
 
-  setCourses() {
-    this.courses = this.dataService.getAllCourses();
+  getCourses(): void {
+    this.databaseService.getAllCoursesBrief().subscribe(courses => this.courses = courses);
+  }
+
+  goToCourse(courseId: string): void {
+    this.router.navigateByUrl(`/course/${courseId}`);
+  }
+
+  getIconPath(index) {
+    return `../../../assets/icons/icon-${index}.svg`;
   }
 
 }

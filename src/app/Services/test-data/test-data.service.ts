@@ -8,6 +8,8 @@ import { Note } from 'src/app/Models/note';
 })
 export class TestDataService {
 
+  userId = 0;
+
   courses: Course[] = [];
   notes: Note[] = [];
   modules: Module[] = [];
@@ -19,21 +21,22 @@ export class TestDataService {
   }
 
   createCoursesAndModules(): Course[] {
-    const introductionModule = new Module(1, 'Introduction', 'If you can see this, well done!'); // IDs should be auto set.
-    const dotnetCoreModule = new Module(2, 'Dont Net Core', 'Dont think you are done yet.');
-    const cSharpModules = [introductionModule, dotnetCoreModule];
-    const cSharpCourse = new Course(1, 'C#', cSharpModules);
+    //const introductionModule = new Module(1, 'Introduction', 'If you can see this, well done!'); // IDs should be auto set.
+    //const dotnetCoreModule = new Module(2, 'Dont Net Core', 'Dont think you are done yet.');
+    //const cSharpModules = [introductionModule, dotnetCoreModule];
+    //const cSharpCourse = new Course(1, 'C#');
 
-    cSharpCourse.modules.forEach(module => {
-      this.modules.push(module);
-    })
-    this.courses.push(cSharpCourse);
-    return this.courses;
+    // cSharpCourse.modules.forEach(module => {
+    //   this.modules.push(module);
+    // })
+    //this.courses.push(cSharpCourse);
+    //return this.courses;
+    return [];
   }
 
   createNotes() {
     const module1 = this.modules[0];
-    const note1 = new Note(1, 'What the hell is this?', 'This makes no sense!', module1);
+    const note1 = new Note('What the hell is this?', 'This makes no sense!', module1, this.userId);
     
     this.notes.push(note1);
     return this.notes;

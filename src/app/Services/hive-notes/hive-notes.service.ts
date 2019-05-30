@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { DataService } from '../data/data.service';
+import { DatabaseService } from '../database/database.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HiveNotesService {
 
-  constructor(private dataService: DataService) { }
+  constructor(private databaseService: DatabaseService) { }
 
   startup() {
-    this.dataService.startup();
+    this.databaseService.startup();
   }
 }

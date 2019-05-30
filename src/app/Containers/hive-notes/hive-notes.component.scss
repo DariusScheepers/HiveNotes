@@ -1,28 +1,26 @@
-a{
-    text-decoration:none;
-    font-size: 1em;
-    color: rgb(59, 59, 59);
-    
+mat-toolbar {
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.1);
+}
+nav {
+    height: 64px;
+    justify-content: flex-end;
 }
 
-.active{
-    color: red;
+.mat-tab-links, .mat-tab-link {
+    height: 64px;
 }
 
 .menu{
     display: flex;
     float: right;
     justify-content: flex-end;
-    padding: 2em;
+    width: 100%;
 }
 
 mat-toolbar{
     background-color: white;
 }
 
-
 .home-icon{
-    width: 6em;
-    padding-top:1.2em;
-    // padding:2em;
+    height: 64px;
 }
