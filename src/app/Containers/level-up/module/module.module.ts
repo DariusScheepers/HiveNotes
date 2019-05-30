@@ -8,6 +8,9 @@ import { CommonComponentsModule } from '../../common/common-components.module';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule, MatFormFieldModule, MatButtonModule, MatCardModule, MatError } from '@angular/material';
 
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MarkdownModule } from 'ngx-markdown';
+
 @NgModule({
   declarations: [ModuleComponent, ModuleContentComponent, NotePanelComponent],
   imports: [
@@ -18,7 +21,9 @@ import { MatInputModule, MatFormFieldModule, MatButtonModule, MatCardModule, Mat
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule,
+    MarkdownModule.forRoot({ loader: HttpClient })
   ],
   exports: [
     ModuleComponent,

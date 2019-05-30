@@ -36,7 +36,8 @@ export class DatabaseService {
     return this.http.get<ModuleFromRest[]>(`${this.courseUrl}/${courseId}/modules`).pipe(map(modules => modules.map(
       module => new Module(
         module.moduleId,
-        module.name
+        module.name,
+        module.pathToMarkdown
       )
     )));
   }
@@ -60,7 +61,8 @@ export class DatabaseService {
   getModule(moduleId: number): Observable<Module> {
     return this.http.get<ModuleFromRest>(`${this.moduleUrl}/${moduleId}`).pipe(map(module => new Module(
       module.moduleId,
-      module.name
+      module.name,
+      module.pathToMarkdown
     )));
   }
 
