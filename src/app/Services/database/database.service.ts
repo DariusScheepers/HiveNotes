@@ -39,7 +39,7 @@ export class DatabaseService {
       )
     )));
   }
-  
+
   startup() {}
 
   getAllCoursesBrief(): Observable<CourseBrief[]> {
