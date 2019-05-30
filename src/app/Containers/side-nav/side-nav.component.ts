@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Module } from 'src/app/Models/module';
 import { ActivatedRoute, Params } from '@angular/router';
-import { DataService } from 'src/app/Services/data/data.service';
+import { DatabaseService } from 'src/app/Services/database/database.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -14,7 +14,7 @@ export class SideNavComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService) { }
+    private databaseService: DatabaseService) { }
 
   ngOnInit() {
     this.setModule();
@@ -24,7 +24,12 @@ export class SideNavComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       if (params['id'] !== undefined) {
         let id = +params['id'];
-        this.module = this.dataService.getModuleById(id);
+        const rec = this.databaseService.getModuleById(id);
+        if (rec) {
+          rec.subscribe(module => this.module = module);
+        } else {
+          this.module = new Module(id, 'Dont Net Core', 'Dont think you are done yet.');
+        }
       } 
     });
   }

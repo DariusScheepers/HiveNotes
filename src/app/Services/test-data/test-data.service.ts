@@ -8,6 +8,8 @@ import { Note } from 'src/app/Models/note';
 })
 export class TestDataService {
 
+  userId = 0;
+
   courses: Course[] = [];
   notes: Note[] = [];
   modules: Module[] = [];
@@ -33,7 +35,7 @@ export class TestDataService {
 
   createNotes() {
     const module1 = this.modules[0];
-    const note1 = new Note(1, 'What the hell is this?', 'This makes no sense!', module1);
+    const note1 = new Note('What the hell is this?', 'This makes no sense!', module1, this.userId);
     
     this.notes.push(note1);
     return this.notes;
