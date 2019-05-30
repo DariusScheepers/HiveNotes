@@ -2,12 +2,13 @@
   <h1>{{module.name}}</h1>
 
   <div id="module-grid">
+      <app-note-panel id="note-panel"
+      [module]="module">
+    </app-note-panel>
     <app-module-content class="content" id="module-content"
       [module]="module">
     </app-module-content>
   
-    <app-note-panel id="note-panel"
-      [module]="module">
-    </app-note-panel>
+    
   </div>
 </div>
