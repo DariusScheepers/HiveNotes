@@ -35,7 +35,7 @@ export class DataService {
     this.courses = courses;
     this.courses.forEach(course => {
       // this.databaseService.getSpecifiedFKFromTable('Module', course.id, 'Course');
-      this.modules.push(...course.modules);
+      //this.modules.push(...course.modules);
     });
   }
 

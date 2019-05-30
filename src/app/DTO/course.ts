@@ -1,7 +1,8 @@
 export interface CourseFromRest {
-  CourseId: number,
-  Code: string,
-  Name: string,
-  Description: string,
-  Icon: string
+  courseId: number,
+  code: string,
+  name: string,
+  description: string,
+  icon: string,
+  modules: number[]
 }

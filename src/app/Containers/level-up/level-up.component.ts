@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from 'src/app/Models/course';
+import { CourseBrief } from 'src/app/Models/course';
 import { DatabaseService } from 'src/app/Services/database/database.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { DatabaseService } from 'src/app/Services/database/database.service';
 })
 export class LevelUpComponent implements OnInit {
 
-  courses: Course[];
+  courses: CourseBrief[];
 
   constructor(private databaseService: DatabaseService) { }
 
@@ -18,7 +18,7 @@ export class LevelUpComponent implements OnInit {
   }
 
   getCourses(): void {
-    this.databaseService.getAllCourses().subscribe(courses => this.courses = courses);
+    this.databaseService.getAllCoursesBrief().subscribe(courses => this.courses = courses);
   }
 
 }
