@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from 'src/app/Models/course';
+import { CourseBrief } from 'src/app/Models/course';
 import { DatabaseService } from 'src/app/Services/database/database.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LevelUpComponent implements OnInit {
 
-  courses: Course[];
+  courses: CourseBrief[];
 
   constructor(private databaseService: DatabaseService, private router: Router) { }
 
@@ -19,7 +19,7 @@ export class LevelUpComponent implements OnInit {
   }
 
   getCourses(): void {
-    this.databaseService.getAllCourses().subscribe(courses => this.courses = courses);
+    this.databaseService.getAllCoursesBrief().subscribe(courses => this.courses = courses);
   }
 
   goToCourse(courseId: string): void {
@@ -27,7 +27,6 @@ export class LevelUpComponent implements OnInit {
   }
 
   getIconPath(index) {
-    console.log(index);
     return `../../../assets/icons/icon-${index}.svg`;
   }
 

@@ -1,11 +1,9 @@
 <div class="container">
-  <h1 >{{course.name}}</h1>
-  <ol> 
-    <ul *ngFor="let module of course.modules">
-      <!-- <a [routerLink]='["module", module.id, { outlets: { sidebar: ["note"] } }]'>{{module.name}}</a> -->
-      <br>
-      <!-- <mat-icon>arrow_right_alt</mat-icon> -->
-      <a [routerLink]="['module', module.id]"><button>{{module.name}}</button></a>
-    </ul>
-  </ol> 
+  <h1 *ngIf="course">{{course.name}}</h1>
+  <ol>
+    <li *ngFor="let module of modules">
+    <!-- <a [routerLink]='["module", module.id, { outlets: { sidebar: ["note"] } }]'>{{module.name}}</a> -->
+      <a [routerLink]="['module', module.id]">{{module.name}}</a>
+    </li>
+  </ol>
 </div>

@@ -8,11 +8,16 @@
     <mat-toolbar-row>
       <a ><img src="..\..\..\assets\images\hive.svg" class="home-icon"></a> 
       <div class="menu">
-        <mat-tab-group>
-          <mat-tab routerLink="/level-up" routerLinkActive="active" label="Level up"></mat-tab>
-          <mat-tab label="Report a bug"></mat-tab>            
-          <mat-tab label="About"></mat-tab>
-        </mat-tab-group>
+          <nav mat-tab-nav-bar [backgroundColor]="background">
+            <a mat-tab-link (click)="navigateTo('/level-up')"
+                [active]="isTabActive('/level-up')">Level up</a>
+
+            <a mat-tab-link (click)="activeLink = '/level-up'"
+            [active]="activeLink == '/level-up'">Report a bug</a>
+            
+            <a mat-tab-link (click)="activeLink = '/level-up'"
+                [active]="activeLink == '/level-up'">About</a>
+          </nav>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
