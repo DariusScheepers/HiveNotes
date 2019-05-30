@@ -1,16 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Module } from 'src/app/Models/module';
 import { Note } from 'src/app/Models/note';
 import { DatabaseService } from 'src/app/Services/database/database.service';
-
-function createNewNoteFormGroup() {
-  const fb = new FormBuilder();
-  return fb.group({
-    name: fb.control(null, null),
-    content: fb.control(null, null)
-  });
-}
+import { DataService } from 'src/app/Services/data/data.service';
 
 @Component({
   selector: 'app-note-panel',
@@ -28,7 +20,7 @@ export class NotePanelComponent implements OnInit {
     return this.databaseService.userID;
   }
 
-  constructor(private databaseService: DatabaseService) { }
+  constructor(private dataService: DataService, private databaseService: DatabaseService) { }
 
   ngOnInit() {
     this.setNotes();
@@ -40,18 +32,27 @@ export class NotePanelComponent implements OnInit {
     if (rec) {
       rec.subscribe(notes => this.notes = notes);
     }
-    this.notes = [new Note('What the hell is this?', 'This makes no sense!', new Module(1,''), 1)]; // FIXME?
   }
 
   setNewNoteForm() {
-    this.newNote = new Note('','',null, this.userID);
+    this.newNote = new Note(0,'','',null, this.userID);
   }
 
   addNewNote() {
-    console.log('Note added: ', this.newNote);
-    let newNote = new Note(this.newNote.name, this.newNote.content, this.module, this.userID);
-    this.databaseService.postNote(newNote);
 
+    let id = this.notes.length;
+    let new_Note = new Note(id, this.newNote.name, this.newNote.content, this.module, this.userID);
+    // console.log('Note added: ', new_Note);
+    this.notes.push(new_Note);
+    this.databaseService.postNote(new_Note);
+    // this.dataService.addNote(new_Note);
+
+    this.setNotes();
+  }
+
+  deleteNote(noteId: number){
+    this.dataService.deleteNote(noteId);
+    console.log("delete id: " + noteId);
     this.setNotes();
   }
 

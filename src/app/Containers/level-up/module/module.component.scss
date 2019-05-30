@@ -8,5 +8,12 @@
     position: absolute;
 
     right:0px;
-    width: 25%;
+    min-width: 25%;
+}
+
+app-note-panel{
+    position: absolute;
+    top:7%;
+    right: 0;
+   // min-width: 25%;
 }

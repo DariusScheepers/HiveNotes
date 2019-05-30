@@ -1,9 +1,14 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      
 <mat-card class="note">
 
       <mat-card-content>
-          <h5 id="name">{{note.name}}</h5>
-          <p id="content">
-              {{note.content}}
-          </p>
+          <h3 id="name">{{note.name}}</h3>
+          <button mat-button id="deleteIcon" (click)="deleteSelf()"><i class="material-icons" style="color: slategray">delete</i></button> 
+            <p id="content">
+                {{note.content}}
+            </p>
+
         </mat-card-content>
 </mat-card>
