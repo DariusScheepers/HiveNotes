@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink";
+@import "./stylings/material-theme";
 // <!-- Latest compiled and minified CSS -->
 // <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 // <!-- jQuery library -->
@@ -7,53 +7,7 @@
 // <!-- Latest compiled JavaScript -->
 // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-::ng-deep p, a {
-    font-family: Roboto,"Helvetica Neue",sans-serif;
-    font-size: 20px;
-    margin: auto;
-    width: 75%;
-    padding: 10px;
-    position: relative;
-    left: 100px;
-
-}
-
-::ng-deep h1 {
-    font-family: Roboto,"Helvetica Neue",sans-serif;
-    font-size: 35px;
-    margin: auto;
-    width: 80%;
-    padding: 10px;
-    position: relative;
-    left: 100px;
-
-}
-
-::ng-deep button {	
-	background-color:rgb(44, 44, 44);
-	border-radius:6px;
-	border:1px solid rgb(44, 44, 44);
-    color:#ffffff !important;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-    padding:6px 12px;
-
-}
-::ng-deep button:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #b30000), color-stop(1, #fe1a00));	
-    background-color:#ce0100;
-}
-
-::ng-deep .mat-button:hover {
-    text-decoration: none;
-}
-
-::ng-deep .mat-button:focus, .mat-button:active:focus, .mat-button.active:focus {
-    outline: none !important;
-    outline-style: none !important;
-    text-decoration: none;
-    }
+@import "./stylings/hexagon";
 
 #submit_note:invalid {
     background-color:rgb(177, 177, 177);
@@ -77,4 +31,16 @@
     font-size:15px;
     font-weight:bold;
     padding:2px 16px;
+}
+
+
+body {
+    margin: 0px;    
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+// Todo: Remove when bootstrap is working
+.container {
+    max-width: 700px;
+    margin: auto;
 }

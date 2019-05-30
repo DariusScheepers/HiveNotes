@@ -1,0 +1,66 @@
+.hexagon-black {
+    width: 100px;
+    height: 55px;
+    background: black;
+    position: relative;
+    display: inline-block;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.hexagon-black:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid black;
+}
+.hexagon-black:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid black;
+}
+.hexagon-white {
+    z-index: 1;
+    top: 2px;
+    left: 5px;
+    width: 90px;
+    height: 49.5px;
+    background: white;
+    position: relative;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.hexagon-white:before {
+    content: "";
+    position: absolute;
+    top: -22.5px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 22.5px solid white;
+}
+.hexagon-white:after {
+    content: "";
+    position: absolute;
+    bottom: -22.5px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 22.5px solid white;
+}
