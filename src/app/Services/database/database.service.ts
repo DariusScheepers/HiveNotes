@@ -7,11 +7,16 @@ import { CourseBrief, Course } from 'src/app/Models/course';
 import { CourseFromRest } from '../../DTO/course.js';
 import { Module } from 'src/app/Models/module.js';
 import { ModuleFromRest } from 'src/app/DTO/module.js';
+import { User } from 'src/app/Models/user.js';
+import { Note } from 'src/app/Models/note.js';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatabaseService {
+
+  // use this to pass in the user's ID to get the relevant notes.
+  userID: number;
 
   private courseUrl = 'http://localhost:3000/api/hive/course';
   private coursesUrl = 'http://localhost:3000/api/hive/courses';
@@ -34,6 +39,8 @@ export class DatabaseService {
       )
     )));
   }
+  
+  startup() {}
 
   getAllCoursesBrief(): Observable<CourseBrief[]> {
     return this.http.get<CourseFromRest[]>(this.coursesUrl).pipe(map(courses => courses.map(
@@ -42,5 +49,26 @@ export class DatabaseService {
         course.name
       )
     )));
+  }
+
+  getUserAuthentication(userBeingVerifiedID: string): Observable<User> {
+    // TODO: replace with http request
+    return new Observable;
+  }
+
+  getCourseById(coursId: number): Observable<Course> {
+    return null;
+  }
+
+  getModuleById(moduleId: number): Observable<Module> {
+    return null;
+  }
+
+  getNotesByModuleId(moduleId: number): Observable<Note[]> {
+    return null;
+  }
+
+  postNote(note: Note) {
+
   }
 }

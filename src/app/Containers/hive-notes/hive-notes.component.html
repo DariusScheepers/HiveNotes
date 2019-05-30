@@ -1,17 +1,24 @@
-<mat-toolbar class="navbar">
-  <mat-toolbar-row>
-    <nav>
-      <a ><img src="..\..\..\assets\images\the-hive.jpg" class="home-icon"></a> 
-      <div class="menu">
-        <a mat-button >Home</a>
-          <a mat-button routerLink="/level-up" routerLinkActive="active">Level Up</a>
-          <a mat-button >Report a bug</a>
-          <a mat-button >About</a>
-      </div>
-          
-    </nav>
-  </mat-toolbar-row>
-</mat-toolbar>
+<div *ngIf="!loggedIn">
+  <app-login
+    (verified)="userLoggedIn()">
+  </app-login>
+</div>
+<div *ngIf="loggedIn">
+  <mat-toolbar class="navbar">
+    <mat-toolbar-row>
+      <nav>
+        <a ><img src="..\..\..\assets\images\the-hive.jpg" class="home-icon"></a> 
+        <div class="menu">
+          <a mat-button >Home</a>
+            <a mat-button routerLink="/level-up" routerLinkActive="active">Level Up</a>
+            <a mat-button >Report a bug</a>
+            <a mat-button >About</a>
+        </div>
+            
+      </nav>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <router-outlet></router-outlet>
 
-
-<router-outlet></router-outlet>
+</div>

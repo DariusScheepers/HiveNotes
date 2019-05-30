@@ -1,13 +1,29 @@
-<div *ngIf="module">
-  <h1>{{module.name}}</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-  <div id="module-grid">
-    <app-module-content class="content" id="module-content"
-      [module]="module">
-    </app-module-content>
+<div class="container">
+  <div *ngIf="module">
+    <h1>{{module.name}}</h1>
   
-    <app-note-panel id="note-panel"
-      [module]="module">
-    </app-note-panel>
-  </div>
+    <div id="module-grid">
+      <app-module-content class="content" id="module-content"
+        [module]="module">
+      </app-module-content>
+    
+      <app-note-panel id="note-panel"
+        [module]="module">
+      </app-note-panel>
+    </div>
+  </div> 
 </div>
+
+</body>
+</html>

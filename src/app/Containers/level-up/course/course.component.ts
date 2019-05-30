@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Params } from '@angular/router';
-import { DataService } from 'src/app/Services/data/data.service';
 import { Module } from 'src/app/Models/module';
 import { DatabaseService } from 'src/app/Services/database/database.service';
 import { Course } from 'src/app/Models/course';
@@ -17,7 +16,6 @@ export class CourseComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService,
     private databaseService: DatabaseService) { }
 
   ngOnInit() {

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h1>
+    Login
+  </h1>
+  <form (ngSubmit)="login()" #form="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="User ID"
+        type="text"
+        required
+        class="form-control"
+        name="userID"
+        #userID="ngModel"
+        [(ngModel)]="loginForm.userID"
+        id="name"/>
+    </mat-form-field>
+  
+    <div class="button-block">
+      <button
+        type="submit">
+        Login
+      </button> 
+    </div>
+  </form>
+  
+  <div *ngIf="!dbUserExist">
+    <span>Invalid Login</span>
+  </div>
+</div>
+
+</body>
+</html>
