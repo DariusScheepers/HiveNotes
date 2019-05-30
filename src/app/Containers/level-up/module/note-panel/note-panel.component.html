@@ -1,7 +1,7 @@
 <mat-card id="panel">
-  <app-note *ngFor="let note of notes" [note]="note"> </app-note>
+  <app-note (delete)="deleteNote($event.id)" *ngFor="let note of notes" [note]="note"> </app-note>
 
-  <form (ngSubmit)="addNewNote()" #noteForm="ngForm">
+  <form #noteForm="ngForm">
     <mat-form-field>
       <input
         matInput
@@ -41,7 +41,7 @@
         color="primary"
         type="submit"
         [disabled]="!noteForm.form.valid"
-        (click)= "noteForm.reset()"
+        (click)= "addNewNote(); noteForm.reset()"
       >
         Submit
       </button>

@@ -11,7 +11,7 @@ import { Module } from 'src/app/Models/module';
 export class DataService {
 
   private courses: Course[] = [];
-  private notes: Note[] = [];
+  public notes: Note[] = [];
   private modules: Module[] = [];
 
   constructor(
@@ -47,8 +47,8 @@ export class DataService {
     const courses = this.testDataService.createCoursesAndModules();  
     this.loadCoursesAndModules(courses);
     
-    const notes = this.testDataService.createNotes(); 
-    this.loadNotes(notes);
+    //const notes = this.testDataService.createNotes(); 
+   // this.loadNotes(notes);
   }
 
   getAllCourses(): Course[] {
@@ -83,5 +83,11 @@ export class DataService {
 
   addNote(note: Note) {
     this.notes.push(note);
+  }
+
+  deleteNote(noteId: number){
+    this.notes[noteId] = this.notes[this.notes.length-1];
+    this.notes[noteId].id = noteId;
+    this.notes.pop();
   }
 }

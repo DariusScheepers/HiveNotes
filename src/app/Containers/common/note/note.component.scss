@@ -5,6 +5,17 @@
     // overflow-wrap: normal;
 }
 
-#content{
+#content {
     overflow-wrap: break-word;
+}
+
+#name {
+    overflow-wrap: break-word;
+}
+
+#deleteIcon{
+    position: absolute;
+    padding: 0.2em;
+    top: 0;
+    right: 0;
 }

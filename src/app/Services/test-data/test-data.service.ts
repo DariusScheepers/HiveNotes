@@ -33,7 +33,7 @@ export class TestDataService {
 
   createNotes() {
     const module1 = this.modules[0];
-    const note1 = new Note(1, 'What the hell is this?', 'This makes no sense!', module1);
+    const note1 = new Note(0, 'What the hell is this?', 'This makes no sense!', module1);
     
     this.notes.push(note1);
     return this.notes;
