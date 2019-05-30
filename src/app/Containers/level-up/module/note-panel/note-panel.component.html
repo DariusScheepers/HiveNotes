@@ -41,6 +41,7 @@
         color="primary"
         type="submit"
         [disabled]="!noteForm.form.valid"
+        (click)= "noteForm.reset()"
       >
         Submit
       </button>
