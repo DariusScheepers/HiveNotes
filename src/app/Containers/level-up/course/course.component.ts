@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { switchMap } from 'rxjs/operators';
+import { Course } from 'src/app/Models/course';
 import { ActivatedRoute, ParamMap, Params } from '@angular/router';
 import { Module } from 'src/app/Models/module';
 import { DatabaseService } from 'src/app/Services/database/database.service';
-import { Course } from 'src/app/Models/course';
 
 @Component({
   selector: 'app-course',
@@ -12,23 +13,29 @@ import { Course } from 'src/app/Models/course';
 export class CourseComponent implements OnInit {
 
   course: Course;
-  modules: Module[];
 
   constructor(
     private route: ActivatedRoute,
     private databaseService: DatabaseService) { }
 
   ngOnInit() {
-    this.getCourse();
+    this.setCourse();
   }
 
-  getCourse() {
+  setCourse() {
     this.route.params.forEach((params: Params) => {
       if (params['id'] !== undefined) {
-        const id = +params['id'];
-        this.databaseService.getCourse(id).subscribe(course => this.course = course);
-        this.databaseService.getModules(id).subscribe(modules => this.modules = modules);
+        let id = +params['id'];
+        const rec = this.databaseService.getCourseById(id);
+        if (rec) {
+          rec.subscribe(course => this.course = course);
+        } else {
+          this.course = new Course(1, 'C#', [null]);
+        }
+
       } 
     });
   }
+
+
 }

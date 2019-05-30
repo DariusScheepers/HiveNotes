@@ -28,7 +28,7 @@ export class ModuleComponent implements OnInit {
         if (rec) {
           rec.subscribe(module => this.module = module);
         } else {
-          //this.module = new Module(2, 'Dont Net Core', 'Dont think you are done yet.');
+          this.module = new Module(2, 'Dont Net Core', 'Dont think you are done yet.');
         }
       } 
     });

@@ -28,7 +28,7 @@ export class SideNavComponent implements OnInit {
         if (rec) {
           rec.subscribe(module => this.module = module);
         } else {
-          this.module = new Module(id, 'Dont Net Core'); // FIXME?
+          this.module = new Module(id, 'Dont Net Core', 'Dont think you are done yet.');
         }
       } 
     });

@@ -40,7 +40,7 @@ export class NotePanelComponent implements OnInit {
     if (rec) {
       rec.subscribe(notes => this.notes = notes);
     }
-    this.notes = [new Note('What the hell is this?', 'This makes no sense!', new Module(1,''), 1)]; // FIXME?
+    this.notes = [new Note('What the hell is this?', 'This makes no sense!', new Module(1,'', ''), 1)];
   }
 
   setNewNoteForm() {

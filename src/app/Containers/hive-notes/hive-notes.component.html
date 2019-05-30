@@ -4,18 +4,16 @@
   </app-login>
 </div>
 <div *ngIf="loggedIn">
-  <mat-toolbar class="navbar">
+  <mat-toolbar>
     <mat-toolbar-row>
-      <nav>
-        <a ><img src="..\..\..\assets\images\the-hive.jpg" class="home-icon"></a> 
-        <div class="menu">
-          <a mat-button >Home</a>
-            <a mat-button routerLink="/level-up" routerLinkActive="active">Level Up</a>
-            <a mat-button >Report a bug</a>
-            <a mat-button >About</a>
-        </div>
-            
-      </nav>
+      <a ><img src="..\..\..\assets\images\hive.svg" class="home-icon"></a> 
+      <div class="menu">
+        <mat-tab-group>
+          <mat-tab routerLink="/level-up" routerLinkActive="active" label="Level up"></mat-tab>
+          <mat-tab label="Report a bug"></mat-tab>            
+          <mat-tab label="About"></mat-tab>
+        </mat-tab-group>
+      </div>
     </mat-toolbar-row>
   </mat-toolbar>
   
