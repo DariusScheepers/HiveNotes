@@ -1,0 +1,28 @@
+a{
+    text-decoration:none;
+    font-size: 1em;
+    color: rgb(59, 59, 59);
+    
+}
+
+.active{
+    color: red;
+}
+
+.menu{
+    display: flex;
+    float: right;
+    justify-content: flex-end;
+    padding: 2em;
+}
+
+mat-toolbar{
+    background-color: white;
+}
+
+
+.home-icon{
+    width: 6em;
+    padding-top:1.2em;
+    // padding:2em;
+}
