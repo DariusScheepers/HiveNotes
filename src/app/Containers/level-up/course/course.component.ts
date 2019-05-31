@@ -24,8 +24,8 @@ export class CourseComponent implements OnInit {
 
   getCourse() {
     this.route.params.forEach((params: Params) => {
-      if (params['id'] !== undefined) {
-        const id = +params['id'];
+      if (params['courseId'] !== undefined) {
+        const id = +params['courseId'];
         this.databaseService.getCourse(id).subscribe(course => this.course = course);
         this.databaseService.getModules(id).subscribe(modules => this.modules = modules);
       } 

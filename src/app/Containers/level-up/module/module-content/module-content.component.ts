@@ -12,7 +12,6 @@ export class ModuleContentComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

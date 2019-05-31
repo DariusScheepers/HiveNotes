@@ -8,8 +8,8 @@ import { SideNavContentComponent } from './Containers/side-nav/side-nav-content/
 const routes: Routes = [
   { path: '', redirectTo: 'level-up', pathMatch: 'full' },
   { path: 'level-up', component: LevelUpComponent },
-  { path: 'course/:id/module/:id', component: ModuleComponent },
-  { path: 'course/:id', component: CourseComponent },
+  { path: 'course/:courseId/module/:moduleId', component: ModuleComponent },
+  { path: 'course/:courseId', component: CourseComponent },
   { path: 'note', component: SideNavContentComponent, outlet: "sidebar"}
 ];
 

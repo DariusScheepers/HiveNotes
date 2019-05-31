@@ -17,19 +17,14 @@ export class ModuleComponent implements OnInit {
     private databaseService: DatabaseService) { }
 
   ngOnInit() {
-    this.setModule();
+    this.getModule();
   }
 
-  setModule() {
+  getModule() {
     this.route.params.forEach((params: Params) => {
-      if (params['id'] !== undefined) {
-        let id = +params['id'];
-        const rec = this.databaseService.getModuleById(id);
-        if (rec) {
-          rec.subscribe(module => this.module = module);
-        } else {
-          //this.module = new Module(2, 'Dont Net Core', 'Dont think you are done yet.');
-        }
+      if (params['moduleId'] !== undefined) {
+        const id = +params['moduleId'];
+        this.databaseService.getModule(id).subscribe(module => this.module = module);
       } 
     });
   }
