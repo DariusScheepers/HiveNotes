@@ -6,7 +6,7 @@ import { ModuleComponent } from './Containers/level-up/module/module.component';
 import { SideNavContentComponent } from './Containers/side-nav/side-nav-content/side-nav-content.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/level-up', pathMatch: 'full' },
+  { path: '', redirectTo: 'level-up', pathMatch: 'full' },
   { path: 'level-up', component: LevelUpComponent },
   { path: 'course/:id/module/:id', component: ModuleComponent },
   { path: 'course/:id', component: CourseComponent },

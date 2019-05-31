@@ -9,7 +9,16 @@ import { PageContentComponent } from '../Containers/page-content/page-content.co
 import { ModuleComponent } from './level-up/module/module.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 
-import { MatSidenavModule, MatToolbarModule, MatButtonModule, MatButtonToggleModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import {
+  MatSidenavModule,
+  MatToolbarModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatCardModule,
+  MatTabsModule
+} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideNavContentComponent } from './side-nav/side-nav-content/side-nav-content.component';
 import { LoginComponent } from './login/login.component';
@@ -22,7 +31,7 @@ import { FormsModule } from '@angular/forms';
     ModuleModule,
     CommonComponentsModule,
     LevelUpModule,
-
+    MatCardModule,
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
@@ -31,6 +40,7 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
+    MatTabsModule
   ],
   exports: [HiveNotesComponent, PageContentComponent, SideNavComponent, SideNavContentComponent]
 })

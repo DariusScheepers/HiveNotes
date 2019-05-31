@@ -1,15 +1,17 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { User } from 'src/app/Models/user';
-import { LowerCasePipe } from '@angular/common';
 import { DatabaseService } from 'src/app/Services/database/database.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
+ 
+  private unsubscribe$ = new Subject<void>();
 
   constructor(private databaseService: DatabaseService) { }
 
@@ -22,6 +24,11 @@ export class LoginComponent implements OnInit {
     this.loginForm = new User('');
   }
 
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
   login() {
     this.loginForm.username = this.loginForm.username.toLowerCase();
     this.authenticateUserAndSetUserID();
@@ -32,13 +39,14 @@ export class LoginComponent implements OnInit {
   }
 
   authenticateUserAndSetUserID() {
-    const rec = this.databaseService.getUserAuthentication(this.loginForm.username);
-    if (rec) {
-      rec.subscribe(value => this.databaseService.userID = value.id);
+    this.databaseService.getUserAuthentication(this.loginForm.username).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe( response => {
+      this.databaseService.userID = response.id;
       this.dbUserExist = true;
-    } else {
+    }, () => { // if error occurs
       this.dbUserExist = false;
-    }
+    });
   }
 
 }

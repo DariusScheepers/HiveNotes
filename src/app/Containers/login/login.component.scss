@@ -1,7 +1,35 @@
-@import 'src/styles.scss';
-
 mat-form-field{
     // padding-top: 8px;
-     display: block;
-     box-sizing:content-box;
+    display: block;
+    box-sizing:content-box;
  }
+
+ mat-card {
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+}
+
+h1 {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 35px;
+    padding: 10px;
+    position: relative;
+
+}
+
+.flex-container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('../../../assets/images/login_page.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+// bootstrap not working
+// TODO: Fix bootstrap and remove the following
+.pull-right {
+    float: right;
+}
