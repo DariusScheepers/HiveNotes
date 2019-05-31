@@ -21,16 +21,6 @@ export class TestDataService {
   }
 
   createCoursesAndModules(): Course[] {
-    //const introductionModule = new Module(1, 'Introduction', 'If you can see this, well done!'); // IDs should be auto set.
-    //const dotnetCoreModule = new Module(2, 'Dont Net Core', 'Dont think you are done yet.');
-    //const cSharpModules = [introductionModule, dotnetCoreModule];
-    //const cSharpCourse = new Course(1, 'C#');
-
-    // cSharpCourse.modules.forEach(module => {
-    //   this.modules.push(module);
-    // })
-    //this.courses.push(cSharpCourse);
-    //return this.courses;
     return [];
   }
 

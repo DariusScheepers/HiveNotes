@@ -2,7 +2,6 @@
   <h1 *ngIf="course">{{course.name}}</h1>
   <ol>
     <li *ngFor="let module of modules">
-    <!-- <a [routerLink]='["module", module.id, { outlets: { sidebar: ["note"] } }]'>{{module.name}}</a> -->
       <a [routerLink]="['module', module.id]">{{module.name}}</a>
     </li>
   </ol>
