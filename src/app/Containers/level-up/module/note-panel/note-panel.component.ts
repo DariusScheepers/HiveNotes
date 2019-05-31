@@ -17,7 +17,8 @@ export class NotePanelComponent implements OnInit {
   newNote: Note;
 
   get userID(): number {
-    return this.databaseService.userID;
+    return 0;
+    // return this.databaseService.userID;
   }
 
   constructor(private dataService: DataService, private databaseService: DatabaseService) { }
@@ -28,10 +29,12 @@ export class NotePanelComponent implements OnInit {
   }
 
   setNotes() {
-    const rec = this.databaseService.getNotesByModuleId(this.module.id);
-    if (rec) {
-      rec.subscribe(notes => this.notes = notes);
-    }
+    const rec = this.dataService.getNotesByModuleId(this.module.id);
+    this.notes=rec;
+    // if (rec) {
+    //   rec.map(note => this.notes = note)
+    //   rec.subscribe(notes => this.notes = notes);
+    // }
   }
 
   setNewNoteForm() {
@@ -44,7 +47,7 @@ export class NotePanelComponent implements OnInit {
     let new_Note = new Note(id, this.newNote.name, this.newNote.content, this.module, this.userID);
     // console.log('Note added: ', new_Note);
     this.notes.push(new_Note);
-    this.databaseService.postNote(new_Note);
+    this.dataService.addNote(new_Note);
     // this.dataService.addNote(new_Note);
 
     this.setNotes();

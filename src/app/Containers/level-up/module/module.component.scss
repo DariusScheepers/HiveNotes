@@ -5,15 +5,8 @@
 }
 
 #note-panel {
-    position: absolute;
-
-    right:0px;
-    min-width: 25%;
-}
-
-app-note-panel{
-    position: absolute;
-    top:7%;
-    right: 0;
-   // min-width: 25%;
+    position: fixed;
+    width: 30%;
+    height: 80%;
+    overflow-y: auto;
 }

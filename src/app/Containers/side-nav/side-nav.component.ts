@@ -17,20 +17,7 @@ export class SideNavComponent implements OnInit {
     private databaseService: DatabaseService) { }
 
   ngOnInit() {
-    this.setModule();
   }
 
-  setModule() {
-    this.route.params.forEach((params: Params) => {
-      if (params['id'] !== undefined) {
-        let id = +params['id'];
-        const rec = this.databaseService.getModule(id);
-        if (rec) {
-          rec.subscribe(module => this.module = module);
-        } else {
-          this.module = new Module(id, 'Dont think you are done yet.');
-        }
-      }
-    });
-  }
+  
 }

@@ -2,14 +2,19 @@
   <div *ngIf="module">
     <h1>{{module.name}}</h1>
   
-    <div id="module-grid">
-      <app-module-content class="content" id="module-content"
-        [module]="module">
-      </app-module-content>
-    
-      <app-note-panel id="note-panel"
+    <div class="row">
+      <div class="col-9">
+          <app-module-content class="content" id="module-content"
+          [module]="module">
+        </app-module-content>
+      </div>
+      
+    <div class="col">
+        <app-note-panel id="note-panel"
         [module]="module">
       </app-note-panel>
+    </div>
+      
     </div>
   </div> 
 </div>
